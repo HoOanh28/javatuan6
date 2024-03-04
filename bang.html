@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 600px;
+            border-spacing: 0;
+            border: 1px solid #bbb;
+        }
+        th, td {
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+        tr:last-child td {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    Fullname_Customer: <br> 
+    <input type="text" name="Fname" id="Fname" />
+    <br>
+    Id_Pro: <br> 
+    <input type="text" name="idp" id="idp" />
+    <br>
+    Name_Pro: <br> 
+    <input type="text" name="Npro" id="Npro" />
+    <br>
+    Quantity_Pro:<br> 
+    <input type="text" name="qty" id="qty" />
+    <br>
+    Price_Pro:
+    <br> 
+    <input type="text" name="up" id="up" />
+    <br>
+    <button type="button" onclick="Save()">Save</button>
+    <button type="button" onclick="Show()">Show</button>
+    <button type="button" onclick="Reset()">Reset</button>
+    <br><br>
+    <table class="table">
+        <thead class="thead_dark">
+            <tr>
+                <th>Auto_Increment</th>
+                <th>Fullname_Customer</th>
+                <th>Id_Pro</th>
+                <th>Name_Pro</th>
+                <th>Quantity_Pro</th>
+                <th>Price_Pro</th>
+                
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="tbl"></tbody>
+    </table>
+    <script type="text/javascript">
+        var id = 0;
+
+        function Save() {
+            id++;
+            var Fname = document.getElementById("Fname").value;
+            var idp = document.getElementById("idp").value;
+            var Npro = document.getElementById("Npro").value;
+            var qty = document.getElementById("qty").value;
+            var up = document.getElementById("up").value;
+            var Total = qty * up;
+            var row = "<tr>";
+            row += "<td>" + id + "</td>";
+            row += "<td>" + Fname + "</td>";
+            row += "<td>" + idp + "</td>";
+            row += "<td>" + Npro + "</td>";
+            row += "<td>" + qty + "</td>";
+            row += "<td>" + up + "</td>";
+            row += "<td>" + Total + "</td>";
+            row += "</tr>";
+            document.getElementById("tbl").innerHTML += row;
+        }
+
+        function Show() {
+        
+            alert("Showing table data");
+        }
+
+        function Reset() {
+            document.getElementById("tbl").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
